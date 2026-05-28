@@ -30,6 +30,7 @@
       width:90%;
       max-width:550px;
       padding:40px;
+      transition:1s ease;
     }
 
     h1{
@@ -163,7 +164,7 @@
     </div>
 
     <button class="break-btn" onclick="startExperience()">
-      PRESS HERE IF LIFE IS TOO MUCH TODAY 🤍
+      PRESS HERE 🤍
     </button>
 
   </div>
@@ -191,15 +192,17 @@
 
   <!-- MUSIC -->
 
+  <!-- CHANGE Baarish.mp3 TO YOUR EXACT FILE NAME -->
+
   <audio id="bgMusic" loop>
-    <source src="song.mp3" type="audio/mp3">
+    <source src="Baarish.mp3" type="audio/mp3">
   </audio>
 
   <script>
 
     const music = document.getElementById("bgMusic");
 
-    // HEARTS
+    // FLOATING HEARTS
 
     function createHeart(){
 
@@ -226,7 +229,7 @@
 
     setInterval(createHeart, 300);
 
-    // START EXPERIENCE
+    // MAIN EXPERIENCE
 
     function startExperience(){
 
@@ -253,7 +256,7 @@
       },800);
     }
 
-    // FLOWERS
+    // FLOWER SHOWER
 
     function startFlowerRain(){
 
