@@ -167,7 +167,7 @@
     </div>
 
     <button class="break-btn" onclick="startExperience()">
-      PRESS HERE 🤍
+      PRESS HERE IF LIFE IS TOO MUCH TODAY 🤍
     </button>
 
   </div>
@@ -195,13 +195,11 @@
 
   <!-- MUSIC -->
 
-  <audio id="bgMusic" loop preload="auto">
-    <source src="song.mp3.mp3" type="audio/mpeg">
+  <audio id="bgMusic" loop controls style="display:none;">
+    <source src="./song.mp3.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-
-    const music = document.getElementById("bgMusic");
 
     // FLOATING HEARTS
 
@@ -234,22 +232,20 @@
 
     function startExperience(){
 
-      // START MUSIC
+      const music = document.getElementById("bgMusic");
 
-      music.volume = 1;
+      // PLAY MUSIC
 
-      const playPromise = music.play();
+      music.muted = false;
 
-      if(playPromise !== undefined){
-
-        playPromise
-          .then(() => {
-            console.log("Music started");
-          })
-          .catch((error) => {
-            console.log("Autoplay blocked:", error);
-          });
-      }
+      music.play()
+        .then(() => {
+          console.log("Music Playing");
+        })
+        .catch((e) => {
+          console.log(e);
+          alert("Music could not play.");
+        });
 
       // HIDE MAIN SCREEN
 
