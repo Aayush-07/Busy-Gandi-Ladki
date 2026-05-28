@@ -167,7 +167,7 @@
     </div>
 
     <button class="break-btn" onclick="startExperience()">
-      PRESS HERE IF LIFE IS TOO MUCH TODAY 🤍
+      PRESS HERE 🤍
     </button>
 
   </div>
@@ -195,8 +195,8 @@
 
   <!-- MUSIC -->
 
-  <audio id="bgMusic" loop>
-    <source src="song.mp3" type="audio/mp3">
+  <audio id="bgMusic" loop preload="auto">
+    <source src="song.mp3.mp3" type="audio/mpeg">
   </audio>
 
   <script>
@@ -234,11 +234,22 @@
 
     function startExperience(){
 
-      // PLAY MUSIC
+      // START MUSIC
 
-      music.play().catch((err)=>{
-        console.log(err);
-      });
+      music.volume = 1;
+
+      const playPromise = music.play();
+
+      if(playPromise !== undefined){
+
+        playPromise
+          .then(() => {
+            console.log("Music started");
+          })
+          .catch((error) => {
+            console.log("Autoplay blocked:", error);
+          });
+      }
 
       // HIDE MAIN SCREEN
 
